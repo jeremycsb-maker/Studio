@@ -78,30 +78,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const syncText = document.getElementById('sync-text');
 
         const updateSyncUI = (status, error) => {
-            if (!syncStatus || !syncText) return;
-            
-            syncStatus.classList.remove('pending', 'error');
+            const syncEls = document.querySelectorAll('.sync-status');
+            const syncText = document.getElementById('sync-text');
+
+            syncEls.forEach(el => el.classList.remove('pending', 'error'));
             
             if (status === 'pending') {
-                syncStatus.classList.add('pending');
-                syncText.textContent = 'Synchronisation...';
-                syncStatus.title = 'Mise à jour des données avec le cloud...';
+                syncEls.forEach(el => {
+                    el.classList.add('pending');
+                    el.title = 'Mise à jour des données avec le cloud...';
+                });
+                if (syncText) syncText.textContent = 'Synchronisation...';
             } else if (status === 'error') {
-                syncStatus.classList.add('error');
-                syncText.textContent = 'Erreur Sync';
-                syncStatus.title = error || 'Une erreur est survenue lors de la synchronisation.';
+                syncEls.forEach(el => {
+                    el.classList.add('error');
+                    el.title = error || 'Une erreur est survenue lors de la synchronisation.';
+                });
+                if (syncText) syncText.textContent = 'Erreur Sync';
             } else {
-                syncText.textContent = 'Cloud à jour';
-                syncStatus.title = 'Toutes vos données sont synchronisées.';
+                if (syncText) syncText.textContent = 'Cloud à jour';
+                syncEls.forEach(el => {
+                    el.title = 'Toutes vos données sont synchronisées.';
+                });
             }
         };
 
-        if (syncStatus) {
-            syncStatus.onclick = () => {
+        const syncEls = document.querySelectorAll('.sync-status');
+        syncEls.forEach(el => {
+            el.onclick = () => {
                 console.log('[UI] Manual sync requested.');
                 store.forceSync();
             };
-        }
+        });
 
         // Subscribe to store changes (focus mode, sync status, and accent color)
         store.subscribe((state) => {

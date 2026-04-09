@@ -2290,3 +2290,180 @@ h3 {
 .water-gauge-pro.completed #water-liters-count {
     animation: count-pop 0.5s ease-out;
 }
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - MOBILE FIRST (IPHONE OPTIMIZATION)
+   ========================================================================== */
+
+/* Hidden by default on Desktop */
+.mobile-header, .mobile-nav {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0px !important;
+        --header-height: 56px;
+    }
+
+    /* Hide Desktop Sidebar */
+    .sidebar {
+        display: none !important;
+    }
+
+    /* Reset Main Content */
+    main {
+        margin-left: 0 !important;
+        padding: 5rem 1rem 6rem 1rem !important;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    /* Mobile Header Styling */
+    .mobile-header {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0 1.25rem;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1000;
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .mobile-header .logo {
+        margin-bottom: 0 !important;
+        font-size: 1rem !important;
+    }
+
+    .mobile-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Mobile Bottom Navigation Styling */
+    .mobile-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+        padding-bottom: env(safe-area-inset-bottom);
+        z-index: 1000;
+        justify-content: space-around;
+        align-items: center;
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .mobile-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.65rem;
+        font-weight: 600;
+        transition: var(--transition);
+        padding: 0.5rem 0;
+    }
+
+    .mobile-nav-item i {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .mobile-nav-item.active {
+        color: var(--accent-color);
+    }
+
+    /* Responsive Grid Fixes */
+    .grid-standard, .dashboard-grid, .stats-summary, .sim-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .production-workspace-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        padding: 1rem !important;
+        gap: 1.5rem 0.75rem !important;
+    }
+
+    .page-card-compact {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* View Header Fixes */
+    .view-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .view-header-actions {
+        width: 100% !important;
+        overflow-x: auto !important;
+        padding-bottom: 0.5rem !important;
+        justify-content: flex-start !important;
+    }
+
+    /* Modal Fixes for Mobile */
+    .modal-card, .modal-modern {
+        max-width: 95% !important;
+        padding: 1.5rem !important;
+        margin: 1rem !important;
+    }
+
+    .modal-body {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .modal-sidebar {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-cover-upload {
+        width: 120px !important;
+    }
+
+    /* Form Overrides */
+    .studio-btn {
+        width: 100% !important;
+    }
+
+    /* Statistics specifics */
+    .stats-grid-main {
+        grid-template-columns: 1fr !important;
+    }
+
+    .fitness-layout-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Force Login Card to match iPhone */
+    .login-card {
+        padding: 1.5rem !important;
+        max-width: 95% !important;
+    }
+}

@@ -10,7 +10,7 @@ import { initHygiene } from './views/hygiene.js';
 
 export function initRouter(store) {
     const mainContent = document.getElementById('view-container');
-    const navItems = document.querySelectorAll('.nav-item[data-view]');
+    const navItems = document.querySelectorAll('.nav-item[data-view], .mobile-nav-item[data-view]');
 
     const routes = {
         'dashboard': initDashboard,
@@ -27,7 +27,7 @@ export function initRouter(store) {
         // Update URL hash without reload
         window.location.hash = `#${viewId}`;
         
-        // Update Sidebar highlighting
+        // Update Sidebars & Bottom Nav highlighting
         navItems.forEach(item => {
             item.classList.toggle('active', item.dataset.view === viewId);
         });

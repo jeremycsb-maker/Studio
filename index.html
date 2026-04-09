@@ -34,6 +34,19 @@
 
         <!-- Main App Layout (Hidden until logged in) -->
         <div id="app-layout" class="app-layout hidden">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <div class="logo">
+                    <i data-lucide="pen-tool"></i>
+                    <span>STUDIO</span>
+                </div>
+                <div class="mobile-header-actions">
+                    <div id="mobile-sync-status" class="sync-status">
+                        <i data-lucide="cloud"></i>
+                    </div>
+                </div>
+            </header>
+
             <!-- Sidebar Navigation -->
             <aside class="sidebar">
                 <div class="logo">
@@ -130,6 +143,30 @@
                     <i data-lucide="minimize"></i>
                 </div>
             </main>
+
+            <!-- Mobile Bottom Navigation -->
+            <nav class="mobile-nav">
+                <a href="#dashboard" class="mobile-nav-item active" data-view="dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#projects" class="mobile-nav-item" data-view="projects">
+                    <i data-lucide="book-open"></i>
+                    <span>Projets</span>
+                </a>
+                <a href="#fitness" class="mobile-nav-item" data-view="fitness">
+                    <i data-lucide="dumbbell"></i>
+                    <span>Sport</span>
+                </a>
+                <a href="#hygiene" class="mobile-nav-item" data-view="hygiene">
+                    <i data-lucide="sparkles"></i>
+                    <span>Hygiène</span>
+                </a>
+                <a href="#profile" class="mobile-nav-item" data-view="profile">
+                    <i data-lucide="user"></i>
+                    <span>Moi</span>
+                </a>
+            </nav>
         </div>
     </div>
 
