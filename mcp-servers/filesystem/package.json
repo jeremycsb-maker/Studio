@@ -1,0 +1,20 @@
+{
+    "name": "mcp-server-filesystem",
+    "version": "1.0.0",
+    "description": "MCP Server for filesystem operations",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [
+        "mcp",
+        "filesystem",
+        "model-context-protocol"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@modelcontextprotocol/server-filesystem": "^1.0.0"
+    }
+}

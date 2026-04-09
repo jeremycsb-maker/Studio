@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangaka Studio | Gestion de Projet</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- PWA & iOS Support -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Mangaka Studio">
+    <link rel="apple-touch-icon" href="/icon.png">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./src/views/aura.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Login Screen Overlay -->
+        <div id="login-screen" class="login-view hidden">
+            <!-- Content will be injected by src/views/login.js -->
+        </div>
+
+        <!-- Main App Layout (Hidden until logged in) -->
+        <div id="app-layout" class="app-layout hidden">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <div class="logo">
+                    <i data-lucide="pen-tool"></i>
+                    <span>STUDIO</span>
+                </div>
+
+                <nav class="nav-links">
+                    <a href="#dashboard" class="nav-item active" data-view="dashboard">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+                    <a href="#projects" class="nav-item" data-view="projects">
+                        <i data-lucide="book-open"></i>
+                        <span>Projets</span>
+                    </a>
+                    <a href="#statistics" class="nav-item" data-view="statistics">
+                        <i data-lucide="bar-chart-3"></i>
+                        <span>Statistiques</span>
+                    </a>
+                    <a href="#characters" class="nav-item" data-view="characters">
+                        <i data-lucide="users"></i>
+                        <span>Personnages</span>
+                    </a>
+                    <a href="#fitness" class="nav-item" data-view="fitness">
+                        <i data-lucide="dumbbell"></i>
+                        <span>Fitness</span>
+                    </a>
+                    <a href="#hygiene" class="nav-item" data-view="hygiene">
+                        <i data-lucide="sparkles"></i>
+                        <span>Hygiène</span>
+                    </a>
+                    <a href="#profile" class="nav-item" data-view="profile">
+                        <i data-lucide="user"></i>
+                        <span>Profil</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div id="zen-mode-toggle" class="zen-toggle">
+                        <i data-lucide="zap"></i>
+                        <span>MODE ZEN</span>
+                    </div>
+                    <div id="sync-status" class="sync-status">
+                        <i data-lucide="cloud"></i>
+                        <span id="sync-text">Synchronisé</span>
+                    </div>
+                    <div class="user-profile-sidebar">
+                        <div class="avatar" id="user-avatar"></div>
+                        <div class="user-info">
+                            <span id="user-name">&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" id="logout-btn">
+                        <i data-lucide="log-out"></i>
+                        <span>Déconnexion</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main id="main-content">
+                <header class="header">
+                </header>
+
+                <section id="view-container">
+                    <!-- Views will be injected here -->
+                    <div class="view" id="dashboard-view">
+                        <h1>Bienvenue, <span id="welcome-name">Artiste</span></h1>
+                        <p class="text-secondary">Voici votre progression du jour.</p>
+
+                        <!-- Dashboard widgets will go here -->
+                        <div class="dashboard-grid"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                            <div class="card" id="active-stats">
+                                <h3>Statistiques Clés</h3>
+                                <!-- Chart Placeholder -->
+                            </div>
+                            <div class="card" id="pomodoro-widget">
+                                <h3>Minuteur Pomodoro</h3>
+                                <div id="timer-display" style="font-size: 3rem; text-align: center; margin: 1rem 0;">
+                                    25:00</div>
+                            </div>
+                            <div class="card" id="calendar-widget">
+                                <h3>Calendrier</h3>
+                            </div>
+                            <div class="card" id="taskboard-widget">
+                                <h3>Taskboard</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div id="exit-zen-btn" title="Quitter le mode Zen">
+                    <i data-lucide="minimize"></i>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
