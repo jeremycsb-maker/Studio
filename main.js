@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         document.addEventListener('click', unlock);
 
+        // Mobile Detection
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            document.body.classList.add('is-mobile');
+        }
+
         loginScreen.classList.add('hidden');
         appLayout.classList.remove('hidden');
         
@@ -46,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Final UI Updates
         updateUserUI(store.user);
         
-        // Initialize Core App Router
+        // Initialize Core App Router (Handled differently for mobile soon)
         initRouter(store);
 
         // Zen Mode Logic

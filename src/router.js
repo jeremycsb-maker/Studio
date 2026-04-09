@@ -8,19 +8,28 @@ import { initBrainstorming } from './views/brainstorming.js';
 import { initFitness } from './views/fitness.js';
 import { initHygiene } from './views/hygiene.js';
 
+// Mobile Views
+import { initMobileDashboard } from './mobile/views/dashboard.js';
+import { initMobileFitness } from './mobile/views/fitness.js';
+import { initMobileProjects } from './mobile/views/projects.js';
+import { initMobileHygiene } from './mobile/views/hygiene.js';
+import { initMobileProfile } from './mobile/views/profile.js';
+
 export function initRouter(store) {
     const mainContent = document.getElementById('view-container');
     const navItems = document.querySelectorAll('.nav-item[data-view], .mobile-nav-item[data-view]');
 
+    const isMobile = window.innerWidth <= 768;
+
     const routes = {
-        'dashboard': initDashboard,
-        'projects': initProjects,
+        'dashboard': isMobile ? initMobileDashboard : initDashboard,
+        'projects': isMobile ? initMobileProjects : initProjects,
         'statistics': initStatistics,
-        'profile': initProfile,
+        'profile': isMobile ? initMobileProfile : initProfile,
         'characters': initCharacters,
         'brainstorming': initBrainstorming,
-        'fitness': initFitness,
-        'hygiene': initHygiene
+        'fitness': isMobile ? initMobileFitness : initFitness,
+        'hygiene': isMobile ? initMobileHygiene : initHygiene
     };
 
     let currentViewId = null;

@@ -1,0 +1,205 @@
+/* 
+    Mangaka Studio | Mobile Design System
+    Specifically optimized for iPhone (PWA/Safari)
+*/
+
+:root {
+    --mobile-radius: 24px;
+    --mobile-padding: 20px;
+    --tab-bar-height: 80px;
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    
+    /* Vibrant Mobile Palette */
+    --mobile-accent: #3b82f6;
+    --mobile-bg: #0f172a;
+    --mobile-card-bg: rgba(255, 255, 255, 0.05);
+    --mobile-glass: rgba(15, 23, 42, 0.8);
+}
+
+body.is-mobile {
+    background-color: var(--mobile-bg);
+    padding-bottom: calc(var(--tab-bar-height) + var(--safe-area-bottom));
+    font-size: 16px; /* Optimized for mobile read */
+    overscroll-behavior-y: none; /* Prevents "pull to refresh" bounce of Safari in awkward ways if not wanted */
+}
+
+body.is-mobile .sidebar {
+    display: none !important;
+}
+
+body.is-mobile main {
+    margin-left: 0 !important;
+    padding: var(--mobile-padding);
+    padding-top: calc(var(--mobile-padding) + var(--safe-area-top) + 60px); /* Space for mobile header */
+}
+
+/* Mobile Header (Fixed Top) */
+.mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(60px + var(--safe-area-top));
+    padding-top: var(--safe-area-top);
+    background: var(--mobile-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--mobile-padding);
+    padding-right: var(--mobile-padding);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-header .logo {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* Bottom Navigation (Luxury Tab Bar) */
+.mobile-nav {
+    display: none; /* Hidden by default in desktop */
+}
+
+body.is-mobile .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    bottom: calc(15px + var(--safe-area-bottom));
+    height: 70px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    z-index: 1000;
+    padding: 0 10px;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #94a3b8;
+    gap: 4px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex: 1;
+}
+
+.mobile-nav-item i {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.mobile-nav-item span {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.mobile-nav-item.active {
+    color: var(--mobile-accent);
+}
+
+.mobile-nav-item.active i {
+    transform: translateY(-2px);
+}
+
+/* Redesigned Mobile Views */
+.mobile-view-header {
+    margin-bottom: 2rem;
+}
+
+.mobile-view-header h1 {
+    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    font-weight: 800;
+    background: linear-gradient(to bottom right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Cards optimized for touch */
+.mobile-card {
+    background: var(--mobile-card-bg);
+    border-radius: var(--mobile-radius);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.mobile-card:active {
+    transform: scale(0.98);
+}
+
+/* Quick Actions Grid */
+.mobile-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 1rem;
+}
+
+.action-tile {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.action-tile i {
+    color: var(--mobile-accent);
+}
+
+.action-tile span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Typography Overrides */
+body.is-mobile h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #e2e8f0;
+}
+
+/* Stats Progress for Mobile */
+.mobile-progress-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    height: 6px;
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.mobile-progress-fill {
+    height: 100%;
+    background: var(--mobile-accent);
+    border-radius: 50px;
+}
+
+/* Scroll adjustments */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
